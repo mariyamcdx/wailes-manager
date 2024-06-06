@@ -1,0 +1,15 @@
+
+#node modules
+node_modules
+build
+
+#hidden files
+.DS_Store
+
+#packlock
+package-lock.json
+
+#yarnlock
+yarn.lock
+
+.env

@@ -1,0 +1,7 @@
+.customPicker .MuiOutlinedInput-root {
+  border-radius: 15px;
+}
+.customPicker .MuiInputBase-input {
+  font-size: 0.9rem;
+  font-weight: 500;
+}

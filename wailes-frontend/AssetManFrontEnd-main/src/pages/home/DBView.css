@@ -1,0 +1,41 @@
+.db-view-container {
+    margin: 1vw;
+    width: calc(100% - 15vw); 
+    transition: width 0.3s ease;
+  }
+  
+  @media (max-width: 1200px) {
+    .db-view-container {
+      width: calc(100% - 20vw); 
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .db-view-container {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  cursor: se-resize;
+}
+.react-resizable-handle::after {
+  content: ' ';
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}

@@ -1,0 +1,21 @@
+.addEditButton {
+  height: fit-content;
+  margin-right: 5px !important;
+  margin-top: 5px !important;
+  padding: 0px !important;
+ 
+ border-radius: 0.1px;
+}
+.saveCancelButton {
+  color: #1976d2 !important;
+  background-color: white !important;
+  margin-right: 4px !important;
+  padding: 0px;
+ 
+
+}
+.saveCancelButton :hover {
+  background-color: white !important;
+  
+
+}
