@@ -1,24 +1,21 @@
-# Use the official Node.js 16 image
-FROM node:16-alpine
+# pull official base image
+FROM node:18-alpine
 
-# Set the working directory
+#set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+#add '/app/node_modules/.bin' to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+#install app dependencies
+COPY package.json ./
 
 
-# Copy the rest of the application code
-COPY . .
+RUN npm install --silent --force
+RUN npm install react-scripts@5.0.1 -g --silent
 
-# Change ownership of the application directory
-RUN chown -R node:node /app
+# add app
+COPY / ./
 
-
-EXPOSE 3000
-
-# Use a non-root user
-USER node
-
-# Command to start the application
+# start app
 CMD ["npm", "start"]

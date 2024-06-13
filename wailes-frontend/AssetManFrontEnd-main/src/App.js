@@ -14,6 +14,7 @@ import { DndProvider } from "react-dnd";
 import { MenuContextProvider } from "./context/MenuContextProvider";
 import DBView from "./pages/home/DBView";
 import Dashboard from "./pages/Dashboard";
+import EditSection from "./pages/home/EditSection";
 export const routes = [
   {
     route: "/home",
@@ -50,6 +51,11 @@ export const routes = [
     Component: DataTransfer,
     isProtected: true,
   },
+  {
+    route:"/home/edit-section",
+    Component: EditSection,
+
+  }
 ];
 
 function App() {

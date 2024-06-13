@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Button, Grid, TextField, IconButton, MenuItem } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
+import EditSection from "./EditSection";
+import { CommonBox } from "./assetManagementSteps/CommonBox";
+import AddSection from "./AddSection";
 
-const AdditionalSection = ({ onClose }) => {
-  const [formData, setFormData] = useState({ tag: "", model: "", description: "", assetId: "", assetType: "" });
+
+const AdditionalSection = ({ onClose,mode , }) => {
   const [isResizing, setIsResizing] = useState(false);
   const [startX, setStartX] = useState(0);
   const [startWidth, setStartWidth] = useState(300);
@@ -41,39 +44,32 @@ const AdditionalSection = ({ onClose }) => {
     setStartWidth(width);
   };
 
-  const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    localStorage.setItem("additionalData", JSON.stringify(formData));
-    console.log("Form submitted and data saved to local storage:", formData);
-  };
-
-  const assetTypes = [
-    { id: "type1", name: "Type 1" },
-    { id: "type2", name: "Type 2" },
-    { id: "type3", name: "Type 3" }
-  ];
-
-  const anotherTableData = [
-    { id: "A1", name: "A1" },
-    { id: "A2", name: "A2" },
-    { id: "A3", name: "A3" }
-  ];
-
-  const combinedAssetTypes = assetTypes.map(asset => anotherTableData.map(data => ({
-    id: `${asset.id}-${data.id}`,
-    name: `${asset.name} \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 ${data.name}`
-  }))).flat();
-
+  
+  
   return (
     <div
       style={{
         marginTop: "-17vh",
-        border: "1px solid #ccc",
-       
+        border: "1px solid #DADCE0",
+        borderRadius: "12px",
+        padding: "1rem",
+        marginBottom: "1rem",
+        boxShadow: "0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px rgba(60, 64, 67, 0.15)",
+        transition: "box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out",
+        overflowY: "auto",
+        maxHeight: "80vh",
+        '&:hover': {
+          boxShadow: "0 4px 6px rgba(60, 64, 67, 0.15), 0 8px 16px rgba(60, 64, 67, 0.15)",
+          transform: "translateY(-2px)",
+        },
+        '&:active': {
+          boxShadow: "0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px rgba(60, 64, 67, 0.15)",
+          transform: "translateY(0)",
+        },
+        '&:focus': {
+          outline: "none",
+          boxShadow: "0 0 0 3px #DADCE0",
+        },
         width: `${width}px`,
         userSelect: "none",
         minWidth: '300px',
@@ -81,8 +77,8 @@ const AdditionalSection = ({ onClose }) => {
       }}
     >
       <Grid container justifyContent="space-between" alignItems="center">
-        <Typography variant="h6">Top Right Section</Typography>
-        <IconButton onClick={onClose}>
+        <Typography variant="h6">{mode === "edit" ? "Edit Section" : "Add Section"}</Typography>
+        <IconButton disableRipple onClick={onClose}>
           <CloseIcon />
         </IconButton>
       </Grid>
@@ -93,72 +89,15 @@ const AdditionalSection = ({ onClose }) => {
         }}
         onMouseDown={handleMouseDown}
       >
-        <form onSubmit={handleSubmit}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Tag"
-                name="tag"
-                value={formData.tag}
-                onChange={handleFormChange}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Model"
-                name="model"
-                value={formData.model}
-                onChange={handleFormChange}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Description"
-                name="description"
-                value={formData.description}
-                onChange={handleFormChange}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Asset ID"
-                name="assetId"
-                value={formData.assetId}
-                onChange={handleFormChange}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                select
-                fullWidth
-                label="Asset Type"
-                name="assetType"
-                value={formData.assetType}
-                onChange={handleFormChange}
-                variant="outlined"
-              >
-                {combinedAssetTypes.map(option => (
-                  <MenuItem  key={option.id} value={option.id}>
-                    {option.name}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Grid>
-            <Grid item xs={12}>
-              <Button type="submit" variant="contained" color="primary">
-                Submit
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
+       
+{/* {
+  showEditPage&&(
+    <EditSection/>
+  )
+} */}
+ {mode === "edit" && <EditSection />}
+ { mode === "add" && <AddSection/> }
+
       </div>
     </div>
   );

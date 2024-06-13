@@ -1,0 +1,56 @@
+[
+  {
+    "enabled": true,
+    "field": "id",
+    "headerName": "id",
+    "width": 150
+  },
+  {
+    "enabled": false,
+    "field": "list_id",
+    "headerName": "list_id",
+    "width": 150
+  },
+  {
+    "enabled": false,
+    "field": "rec_id",
+    "headerName": "rec_id",
+    "width": 150
+  },
+  {
+    "enabled": false,
+    "field": "list_code",
+    "headerName": "list_code",
+    "width": 150
+  },
+  {
+    "enabled": false,
+    "field": "list_desc",
+    "headerName": "list_desc",
+    "width": 150
+  },
+  {
+    "enabled": false,
+    "field": "list_group",
+    "headerName": "list_group",
+    "width": 150
+  },
+  {
+    "enabled": true,
+    "field": "list_value1",
+    "headerName": "list_value1",
+    "width": 150
+  },
+  {
+    "enabled": true,
+    "field": "list_value2",
+    "headerName": "list_value2",
+    "width": 150
+  },
+  {
+    "enabled": true,
+    "field": "list_value3",
+    "headerName": "list_value3",
+    "width": 150
+  }
+]

@@ -96,8 +96,9 @@ export default function Header() {
             onClick={() => {
               navigate("/home");
             }}
+            disableRipple
           >
-            <MIcon style={{ height: "5vh", width: "5vw",marginLeft:'-2vw',marginBottom:'1vw' }} />
+            <MIcon  style={{ height: "5vh", width: "5vw",marginLeft:'-2vw',marginBottom:'1vw' }} />
           </IconButton>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <FormControl

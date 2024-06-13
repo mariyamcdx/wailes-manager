@@ -70,22 +70,23 @@ export default function AddEditToolBar(props) {
       {!checkList && (
         <>
           <Tooltip title={"Add"}>
-            <span style={{marginLeft:'-0.8vw'}}>
-              <Button
-                style={{ backgroundColor:'transparent', }}
+            <span style={{marginLeft:'-0.7vw'}}>
+              <Button disableRipple
+                sx={buttonStyle}
                 startIcon={<i class="fa-solid fa-plus fa-xs" style={{fontSize:'17px'}}></i>}
-                onClick={onClickAdd}
-                disabled={isAsset ? !plantId || !access.canWrite : !access.canWrite}
+                onClick={onClickAdd} 
+                // disabled={isAsset ? !plantId || !access.canWrite : !access.canWrite}
               />
             </span>
           </Tooltip>
           <Tooltip title={"Edit"}>
-           <span style={{marginLeft:'-1.8vw'}}>
+           <span style={{marginLeft:'-1.2vw'}}>
               <Button
-                style={{ backgroundColor:'transparent',}}
+              disableRipple
+                sx ={buttonStyle}
                 startIcon={<i class="fa-solid fa-pen-to-square fa-xs"  style={{fontSize:'17px'}}></i>}
                 onClick={onClickEdit}
-                disabled={!editId || !access.canModify}
+                // disabled={!editId || !access.canModify}
               />
             </span>
           </Tooltip>
@@ -93,8 +94,9 @@ export default function AddEditToolBar(props) {
       )}
       {!plant && (
         <Tooltip title={"Delete"}>
-          <span style={{marginLeft:'-1.8vw'}}>
+          <span style={{marginLeft:'-1.5vw'}}>
             <Button
+            disableRipple
               style={{ backgroundColor:'transparent', }}
               startIcon={<i class="fa-solid fa-trash fa-xs"  style={{fontSize:'17px'}}></i>}
               onClick={onClickDelete}
@@ -107,7 +109,7 @@ export default function AddEditToolBar(props) {
         <Tooltip title={"Properties"}>
          <span style={{marginLeft:'-1.8vw'}}>
             <Button sx={buttonStyle}
-              style={{ backgroundColor:'transparent',}}
+              disableRipple
               startIcon={<i class="fa-solid fa-toolbox fa-xs"  style={{fontSize:'17px'}}></i>}
               onClick={onClickProperties}
               // disabled={!propId}

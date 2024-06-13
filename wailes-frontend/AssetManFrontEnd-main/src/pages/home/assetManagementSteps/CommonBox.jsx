@@ -7,6 +7,8 @@ import {
 } from "../../../common/DataGridComponent";
 import AddEditToolBar from "../../../common/AddEditToolBar";
 import BottomLeftSection from "../BottomLeftSection";
+import EditSection from "../EditSection";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 export const CommonBox = ({
   columns,
@@ -24,10 +26,25 @@ export const CommonBox = ({
   urDelete,
   sidebar,
   sortingField,
+  setShowAdditionalSection,
+  setMode
 }) => {
   const [bottomLeftSectionVisible, setBottomLeftSectionVisible] = useState(false);
   const [bottomSectionHeight, setBottomSectionHeight] = useState(100);
+
+
   const commonBoxRef = useRef(null);
+
+  const handleEditClick = () => {
+    setMode("edit");
+    
+    setShowAdditionalSection(true);
+  };
+
+  const handleAddClick = () => {
+    setMode("add");
+    setShowAdditionalSection(true);
+  };
 
   const handleToggleBottomLeftSection = () => {
     setBottomLeftSectionVisible(!bottomLeftSectionVisible);
@@ -61,7 +78,7 @@ export const CommonBox = ({
           sx={{
             width: "100%",
             overflow: "hidden",
-            maxHeight: "58vh",
+            maxHeight: "60vh",
           }}
         >
           <DataGridComponent
@@ -82,18 +99,17 @@ export const CommonBox = ({
                   >
                     <CustomToolbar {...props} />
                     <AddEditToolBar
-                      onClickAdd={onClickAdd}
-                      onClickEdit={onClickEdit}
                       onClickDelete={onClickDelete}
                       editId={editId}
                       urWrite={urWrite}
                       urModify={urModify}
                       urDelete={urDelete}
+                      onClickEdit={handleEditClick}
+                      onClickAdd={handleAddClick}                      
                       sidebar={sidebar}
                     />
-                    <Button style={{backgroundColor:'transparent',color:'gray',boxShadow:'none'}} onClick={handleToggleBottomLeftSection}>
-                      Bottom Left Section
-                    </Button>
+                    <Button disableRipple startIcon={<MoreVertIcon />}  style={{backgroundColor:'transparent',color:'gray',boxShadow:'none',marginLeft:'-1.7vw', }}  onClick={handleToggleBottomLeftSection}>
+                     </Button>
                   </div>
                 );
               },

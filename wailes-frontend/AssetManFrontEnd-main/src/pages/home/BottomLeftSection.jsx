@@ -68,7 +68,7 @@ const BottomLeftSection = ({ setBottomSectionHeight }) => {
         overflow: "hidden",
       }}
     >
-      <Typography variant="h6">Bottom Left Section</Typography>
+      
       <div
         style={{
           height: "100%",
@@ -76,6 +76,7 @@ const BottomLeftSection = ({ setBottomSectionHeight }) => {
         }}
         onMouseDown={handleMouseDown}
       >
+        <Typography variant="h6">Bottom Section</Typography>
         <DataGrid
           rows={sampleData}
           columns={columns}

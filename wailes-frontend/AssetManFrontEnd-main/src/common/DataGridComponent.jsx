@@ -39,16 +39,16 @@ export function CustomToolbar() {
     <Box sx={{ ".MuiButton-startIcon": { display: "flex", mx: 0 }, marginBottom: '0.1px'}}>
       <GridToolbarContainer>
         <Tooltip title='Columns'>
-        <GridToolbarColumnsButton sx={buttonStyle} startIcon={<i className="fas fa-columns fa-xxl" style={{fontSize:'17px'}}></i>}></GridToolbarColumnsButton>
+        <GridToolbarColumnsButton disableRipple sx={buttonStyle} startIcon={<i className="fas fa-columns fa-xxl" style={{fontSize:'17px'}}></i>}></GridToolbarColumnsButton>
         </Tooltip>
         <Tooltip >
-        <GridToolbarFilterButton sx={buttonStyle} startIcon={<i className="fas fa-filter fa-xxl" style={{fontSize:'17px'}}></i>}></GridToolbarFilterButton>
+        <GridToolbarFilterButton disableRipple sx={buttonStyle} startIcon={<i className="fas fa-filter fa-xxl" style={{fontSize:'17px'}}></i>}></GridToolbarFilterButton>
         </Tooltip>
         <Tooltip title='Density'>
-        <GridToolbarDensitySelector sx={buttonStyle} startIcon={<i className="fas fa-th-list fa-xxl" style={{fontSize:'17px'}}></i>}></GridToolbarDensitySelector>
+        <GridToolbarDensitySelector disableRipple sx={buttonStyle} startIcon={<i className="fas fa-th-list fa-xxl" style={{fontSize:'17px'}}></i>}></GridToolbarDensitySelector>
         </Tooltip>
         <Tooltip title='Export'>
-        <GridToolbarExport sx={buttonStyle} startIcon={<i className="fas fa-download fa-xs" style={{fontSize:'17px'}}></i>}></GridToolbarExport>
+        <GridToolbarExport disableRipple sx={buttonStyle} startIcon={<i className="fas fa-download fa-xs" style={{fontSize:'17px'}}></i>}></GridToolbarExport>
         </Tooltip>
       </GridToolbarContainer>
     </Box>
