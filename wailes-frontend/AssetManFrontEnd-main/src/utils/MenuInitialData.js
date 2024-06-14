@@ -39,7 +39,15 @@ export const menuInitialData = {
       menu_link: "4()",
       route: "/home/app-config",
     },
-   
+    {
+      menu_code: 5,
+      menu_order: 5,
+      menu_group: "home",
+      menu_e_name: "Materials",
+      menu_e_paramName: "materials",
+      menu_link: "5()",
+      route: "/home/materials",
+    },
    
    
     

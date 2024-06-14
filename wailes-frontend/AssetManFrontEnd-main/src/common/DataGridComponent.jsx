@@ -143,3 +143,4 @@ export const DataGridComponent = ({
     />
   );
 };
+export default DataGridComponent

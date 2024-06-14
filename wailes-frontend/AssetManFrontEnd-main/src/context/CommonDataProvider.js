@@ -7,13 +7,13 @@ import {
   ListGroupPrefix,
   WorkOrderPrefix,
 } from "../constants/global";
-
+ 
 const CommonDataContext = createContext();
-
+ 
 export const CommonDataProvider = ({ children }) => {
   const { userData } = useAuthContext();
   const lastLoginPlantId = userData?.lastLoginPlantID;
-
+ 
   const { data: workOrderType } = useFetchApi({
     endpoint: `${ListGroupPrefix}/work-order-type`,
     retrieveOnMount: true,
@@ -129,38 +129,38 @@ export const CommonDataProvider = ({ children }) => {
     retrieveOnMount: true,
     Menu_id: 16,
   });
-
+ 
   const { data: getAssetDataList, refetch: refetchAssets } = useFetchApi({
     endpoint: `${AssetPrefix}?plantId=${lastLoginPlantId}`,
     retrieveOnMount: lastLoginPlantId !== null,
     Menu_id: 3,
   });
-
+ 
   const { data: getUomDataList, refetch: refetchUom } = useFetchApi({
     endpoint: `${GeneralPrefix}/uom`,
     retrieveOnMount: true,
     Menu_id: 23,
   });
-
+ 
   const { data: getAssetCategory, refetch: refetchAsctCat } = useFetchApi({
     endpoint: `${AssetPrefix}/asset-category?plantId=${lastLoginPlantId}`,
     retrieveOnMount: lastLoginPlantId !== null,
     Menu_id: 19,
   });
-
+ 
   const { data: getAssetManufacture, refetch: refetchManuFacture } =
     useFetchApi({
       endpoint: `${AssetPrefix}/asset-manufacture`,
       retrieveOnMount: true,
       Menu_id: 22,
     });
-
+ 
   const { data: getSupplierList, refetch: refetchSupplier } = useFetchApi({
     endpoint: `${GeneralPrefix}/businesspartner?plantId=${lastLoginPlantId}`,
     retrieveOnMount: lastLoginPlantId !== null,
     Menu_id: 9,
   });
-
+ 
   const { data: getAssetGroupList, refetch: refetchAssGroup } = useFetchApi({
     endpoint: `${AssetPrefix}/asset-group?plantId=${lastLoginPlantId}`,
     retrieveOnMount: lastLoginPlantId !== null,
@@ -387,7 +387,7 @@ export const CommonDataProvider = ({ children }) => {
       refetchUserGroup,
       refetchAssets,
     }),
-
+ 
     [
       workOrderType,
       workOrderStatus,
@@ -450,14 +450,14 @@ export const CommonDataProvider = ({ children }) => {
       refetchAssets,
     ]
   );
-
+ 
   return (
     <CommonDataContext.Provider value={value}>
       {children}
     </CommonDataContext.Provider>
   );
 };
-
+ 
 export const useCommonData = () => {
   const context = useContext(CommonDataContext);
   if (context === undefined) {

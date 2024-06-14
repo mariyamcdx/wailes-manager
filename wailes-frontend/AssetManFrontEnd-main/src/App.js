@@ -2,7 +2,7 @@ import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContextProvider";
-import { CommonDataProvider } from "./context/CommonDataProvider";
+import { CommonDataProvider, useCommonData } from "./context/CommonDataProvider";
 import { ProtectedRouteContent } from "./layout/ProtectedRouteContent";
 import HomePage from "./pages/HomePage";
 import SignIn from "./pages/SignIn";
@@ -15,6 +15,7 @@ import { MenuContextProvider } from "./context/MenuContextProvider";
 import DBView from "./pages/home/DBView";
 import Dashboard from "./pages/Dashboard";
 import EditSection from "./pages/home/EditSection";
+import Materials from "./pages/home/Materials";
 export const routes = [
   {
     route: "/home",
@@ -55,6 +56,11 @@ export const routes = [
     route:"/home/edit-section",
     Component: EditSection,
 
+  },
+  {
+    route:"/home/materials",
+    Component: Materials,
+    isProtected: true,
   }
 ];
 

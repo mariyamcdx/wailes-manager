@@ -55,6 +55,19 @@ export const MenuRightsDetails = [
     urExecute: true,
     urModify: true,
   },
+  {
+    menuGroup: "home",
+    menuName: "Materials",
+    urMenuIdFk: 5,
+    urEnable: true,
+    urRead: true,
+    urView: true,
+    urWrite: true,
+    urDelete: true,
+    urAdmin: true,
+    urExecute: true,
+    urModify: true,
+  },
 
  
 ];

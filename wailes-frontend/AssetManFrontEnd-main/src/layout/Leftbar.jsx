@@ -22,6 +22,7 @@ import { useAuthContext } from "../context/AuthContextProvider";
 import { menuInitialData } from "../utils/MenuInitialData";
 import { MenuRightsDetails } from "../utils/MenuRightsDetails";
 import MIcon from "../assets/svgs/MIcon";
+import Materials from "../pages/home/Materials";
 
 const iconList = {
   home: <MenuIcon />,
@@ -29,6 +30,7 @@ const iconList = {
   DataTransfer: <ImportExportIcon />,
   AppConfig: <MiscellaneousServicesIcon />,
   Dashboard: <DashboardIcon />,
+  Materials: <MenuIcon/>
 };
 
 const Leftbar = () => {
